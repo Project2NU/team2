@@ -18,6 +18,7 @@ router.get("/", async (req, res) => {
   //delete text from below
   res.send(`you are getting all books ${JSON.stringify(allBook)}`);
 });
+//fun
 
 router.post("/", async (req, res) => {
   //   console.log(req.body);
