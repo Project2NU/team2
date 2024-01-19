@@ -1,9 +1,9 @@
 const {Model, DataTypes} = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Book extends Model {};
+class Review extends Model {};
 
-Book.init(
+Review.init(
     {
       id: {
         type: DataTypes.INTEGER,
@@ -11,26 +11,34 @@ Book.init(
         primaryKey: true,
         autoIncrement: true,
       },
-      title: {
-        type: DataTypes.STRING,
+      book_id: {
+        type: DataTypes.INTEGER,
         allowNull: false,
+        references: {
+            model: 'book',
+            key: 'id', 
+        },
       },
-      author: {
-        type: DataTypes.STRING,
+      user_id: {
+        type: DataTypes.INTEGER,
         allowNull: false,
+        references: {
+            model: 'user',
+            key: 'id', 
+        },
       },
-      synopsis: {
+      description: {
         type: DataTypes.TEXT,
-        allowNull: true,
+        allowNull: false,
       },
     },
     {
       sequelize,
-      timestamps: false,
+      timestamps: true,
       freezeTableName: true,
       underscored: true,
-      modelName: "book",
+      modelName: "review",
     }
   );
   
-  module.exports = Book;
+  module.exports = Review;
