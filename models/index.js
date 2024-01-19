@@ -1,6 +1,8 @@
-const User = require('./User');
-const Book = require('./Book');
-const Review = require('./Review');
+
+const User = require("./User");
+const Book = require("./Book");
+const Review = require("./Review");
+
 
 
 Book.hasMany(Review, {
@@ -18,3 +20,4 @@ Review.belongsTo(Book, {
 
 
 module.exports = { User, Book, Review };
+

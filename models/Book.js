@@ -1,4 +1,6 @@
-const {Model, DataTypes} = require("sequelize");
+
+const { Model, DataTypes } = require("sequelize");
+
 const sequelize = require("../config/connection");
 
 class Book extends Model {};
@@ -24,6 +26,7 @@ Book.init(
         allowNull: true,
       },
     },
+
     {
       sequelize,
       timestamps: false,
@@ -34,3 +37,4 @@ Book.init(
   );
   
   module.exports = Book;
+
