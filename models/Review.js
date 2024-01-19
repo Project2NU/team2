@@ -27,6 +27,10 @@ Review.init(
             key: 'id', 
         },
       },
+      beer_pairing: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       description: {
         type: DataTypes.TEXT,
         allowNull: false,
