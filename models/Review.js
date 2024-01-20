@@ -18,6 +18,7 @@ Review.init(
         model: "book",
         key: "id",
       },
+
     },
     user_id: {
       type: DataTypes.INTEGER,
