@@ -24,19 +24,19 @@ router.post("/", async (req, res) => {
   }
 });
 
-// router.delete("/:id", async (req, res) => {
-//   const reviewId = req.params.id;
-//   const result = await Review.destroy({
-//     where: { id: reviewId },
-//   });
+router.delete("/:id", async (req, res) => {
+  const reviewId = req.params.id;
+  const result = await Review.destroy({
+    where: { id: reviewId },
+  });
 
-//   if (result === 0) {
-//     // If no rows are deleted, it means the review wasn't found
-//     res.status(404).send(`Review with ID ${reviewId} not found.`);
-//   } else {
-//     // If the review is successfully deleted
-//     res.send(`You deleted a review with ID ${reviewId}.`);
-//   }
-// });
+  if (result === 0) {
+    // If no rows are deleted, it means the review wasn't found
+    res.status(404).send(`Review with ID ${reviewId} not found.`);
+  } else {
+    // If the review is successfully deleted
+    res.send(`You deleted a review with ID ${reviewId}.`);
+  }
+});
 
 module.exports = router;
