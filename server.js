@@ -7,7 +7,6 @@ const routes = require("./controllers");
 const helpers = require("./utils/helpers");
 
 const sequelize = require("./config/connection");
-const exp = require("constants");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const app = express();
@@ -27,18 +26,12 @@ const sess = {
 
 app.use(session(sess));
 // Set Handlebars Middleware
-app.engine("handlebars", expbs({
-  defaultLayout: 'main',
-  layoutsDir: path.join(__dirname, 'views/test')
-}));
-// hbs.engine
+app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 // Set handlebar routes
 app.get('/', function (req, res) {
   res.render('homepage');
-});
-
-app.get('/about', function (req, res) {
+  res.render('login');
   res.render('about');
 });
 // Set static folder
