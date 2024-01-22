@@ -8,6 +8,9 @@ async function bookSearch(event){
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        for (let i = 0; i < data.docs.length - 95; i++){
+            console.log(data.docs[i])
+        }
       });
 }
 
