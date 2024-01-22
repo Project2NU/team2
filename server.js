@@ -28,15 +28,17 @@ app.use(session(sess));
 // Set Handlebars Middleware
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
-// Set handlebar routes
-app.get('/', function (req, res) {
-  res.render('homepage');
-  res.render('login');
-  res.render('about');
-});
+
+// Set handlebar routes (Temporarily taken out because these routes were overriding homeRoutes and all assigned to the same route)
+// app.get('/', function (req, res) {
+//   res.render('homepage');
+//   res.render('login');
+//   res.render('about');
+// });
 // Set static folder
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use('/', routes);
