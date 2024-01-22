@@ -5,8 +5,6 @@ const session = require("express-session");
 const exphbs = require("express-handlebars");
 const routes = require("./controllers");
 const helpers = require("./utils/helpers");
-// const newUrl = "https://example.com/new-page.html";
-// window.location.replace(newUrl);
 
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -37,6 +35,7 @@ app.get('/', function (req, res) {
   res.render('about');
 });
 // Set static folder
+app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
@@ -46,3 +45,4 @@ app.use('/', routes);
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));
 });
+
